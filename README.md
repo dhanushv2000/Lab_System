@@ -7,8 +7,11 @@
 |    IIT2019208  |   Dhanush Vasa | 
 |    IIT2019234  |   Pravallika Kodi |
 |    IIB2019030  |   Kandagatla Meghana Santhoshi |
-**Group No-** 23
 
-**Instructor Name-** Ashutosh Kumar/Kokila
+**Project Number-** 23
 
-**Mentor Name-** Rituvendra singh
+**Project Name-** Lab Reservation System
+
+**Instructor Name-** Mr.Ashutosh Kumar/ Dr.J.Kokila
+
+**Mentor Name-** Mr.Rituvendra singh
