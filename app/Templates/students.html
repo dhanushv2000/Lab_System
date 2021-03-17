@@ -1,0 +1,36 @@
+{% extends 'app/main_logged_in.html' %}
+{% block start %}
+  <h3>Students DATA</h3>
+
+  <br>
+
+  <div class="row">
+    <div class="col">
+      <div class="card card-body">
+        <form method="get">
+          <button type="Submit" class="btn btn-primary">Search</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="row">
+    <div class= "col-md-12">
+      <hr>
+      <div class="card card-body">
+        <a class="btn btn-primary btn-sm btn-block" href="">Create Student</a>
+        <table class="table table-sm">
+          <tr>
+            <th>Student Roll Number</th>
+            <th>Email</th>
+            <th>Section ID</th>
+            <th>Faculty Name</th>
+            <th></th>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+{% endblock %}

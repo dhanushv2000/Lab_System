@@ -1,0 +1,23 @@
+{% extends 'app/main_logged_in.html' %}
+{% block start %}
+  <h3>Welcome TO DashBoard</h3>
+
+  <br>
+
+  <div class="row">
+    <div class= "col-md-4">
+      <hr>
+      <div class="card card-body">
+        <a class="btn btn-primary btn-sm btn-block" href="">Create Section</a>
+        <table class="table table-sm">
+          <tr>
+            <th>Section ID</th>
+            <th>Respective Faculty</th>
+            <th>Update</th>
+            <th>Remove</th>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+{% endblock %}

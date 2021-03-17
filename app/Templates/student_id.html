@@ -1,0 +1,47 @@
+{% extends 'app/main_logged_in.html' %}
+{% block start %}
+  <h3>Students Based ID</h3>
+
+  <br>
+
+  <div class="row">
+
+    <div class="col-md">
+      <div class="card card-body">
+        <h5>Student:</h5>
+        <hr>
+        <a class="btn btn-outline-info btn-sm btn-block" href="">Update Student</a>
+        <a class="btn btn-outline-danger btn-sm btn-block" href="">Delete Student</a>
+      </div>
+    </div>
+
+    <div class="col-md">
+      <div class="card card-body">
+        <h5>Contact Information</h5>
+        <hr>
+        <p>Roll Number: </p>
+        <p>Email: </p>
+        <p>Section ID: </p>
+      </div>
+    </div>
+
+  </div>
+
+  <br>
+
+  <div class="row">
+    <div class="col-md">
+      <div class="card card-body">
+        <table class="table table-sm">
+          <tr>
+            <th>Lab ID</th>
+            <th>Date</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
