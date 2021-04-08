@@ -1,0 +1,44 @@
+{% extends 'app/main_logged_in.html' %}
+{% block start %}
+<br>
+<div class="createSec" >
+  <h1 style = "font-family:georgia,garamond,serif;font-size:40px;text-align:center;font-style:italic"> Room Detail View</h1>
+
+  <div class="content">
+    <div class="room">
+      <div class='card card-body' style = "font-family:georgia,garamond,serif;font-size:25px;background-color:#ADD8E6;text-align:center;font-style:italic">
+        <div class="room-info">
+          <h2 style="color:blue">{{room_category}}</h2>
+        </div>
+
+        <form id="booking-form" method="POST">
+          {% csrf_token %}
+          <div class="input-div">
+            <label for=id_section>Section : </label>
+            {{form.section}}
+          </div>
+
+          <div class="input-div">
+            <label for="id_check_in">Check In : </label>
+            <input type="datetime-local" id="id_check_in" style="font-style:italic;" id="id_check_in" name = "check_in">
+          </div>
+
+
+
+          <div class="input-div">
+            <label for="id_check_out">Check Out : </label>
+            <input type="datetime-local" id="id_check_out" style="font-style:italic;" id="id_check_out" name = "check_out">
+          </div>
+          <br>
+
+          <div class="input-div">
+            <button type="submit" style="background-color: steelblue;font-style:italic;font-size:25px;color:white;">Book the Room</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'app/main_logged_in.html' %}
+{% block start %}
+<div class="createSec">
+  <h1 style = "font-family:georgia,garamond,serif;text-align:center;font-size:40px;font-style:italic;"><b>Cancel Booking</b></h1>
+  <br>
+  <div class="room-info">
+      <h1>{{room_category}}</h1>
+  </div>
+  <br>
+  <form id="booking-form" action="{% url 'delete_booked_lab' sec.id %}" method="POST">
+
+               {% csrf_token %}
+               <h3>Are you sure,you want to cancel this Booking?</h3>
+               <h5><b>Details</b></h5>
+               <h5>Room Number:{{sec.room.number}}</h5>
+               <h5>Lab Department: {{sec.room.category}}</h5>
+               <h5>{{booking}}</h5>
+               <!-- Input Div -->
+               <div class="input-div">
+               <!--<a class="btn btn-warning" href="{% url 'resourcepage'  %}">Cancel the booking</a>-->
+                   <br><button class="btn btn-sm btn-danger" style="font-size:20px;text-align:center;" type="submit">Cancel the Booking</button>
+               </div>
+
+    </form>
+
+  </form>
+  </div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'app/main_logged_in.html' %}
+{% block start %}
+<br><br><br>
+<div class="createSec">
+<h1 style = "font-family:georgia,garamond,serif;text-align:center;font-size:30px;font-style:italic;"><b>Booking Successful:</b></h1>
+<br>
+<div class="row justify-content-center">
+  <div class="card card-body">
+    <h6>Lab Category: {{booking.room.category}}</h6>
+    <h6>Room Number: {{booking.room.number}}</h6>
+    <h6>Check In Data/Time: {{booking.check_in}}</h6>
+    <h6>Check Out Date/Time: {{booking.check_out}}</h6>
+    <a class = "btn btn-primary btn-sm btn-block" style="width:25%;text-align:center;" href="{% url 'DashBoard' %}">Return</a>
+    <a class = "btn btn-primary btn-sm btn-block" style="width:25%;text-align:center;" href="{% url 'sendemail' booking.id %}">Notify</a>
+
+  </div>
+
+</div>
+</div>
+
+{% endblock %}
