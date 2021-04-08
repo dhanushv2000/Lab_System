@@ -15,3 +15,12 @@
 **Instructor Name-** Mr.Ashutosh Kumar/ Dr.J.Kokila
 
 **Mentor Name-** Mr.Rituvendra singh
+
+**Technology Used** 
+Frontend - HTML,CSS,Bootstrap
+Backend - Python,Django 
+
+**Tools Used** 
+Visual Studio,Atom,Anaconda Command Prompt 
+
+**How to Run project**
