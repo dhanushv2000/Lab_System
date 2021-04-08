@@ -8,19 +8,39 @@
 |    IIT2019234  |   Pravallika Kodi |
 |    IIB2019030  |   Kandagatla Meghana Santhoshi |
 
-**Project Number-** 23
+**##Project Number** 
+23
 
-**Project Name-** Lab Reservation System
-
-**Instructor Name-** Mr.Ashutosh Kumar/ Dr.J.Kokila
-
-**Mentor Name-** Mr.Rituvendra singh
-
+**Project** 
+```
+Lab Reservation System for college University
+```
+---
+**Instructor**
+```
+Mr.Ashutosh Kumar/ Dr.J.Kokila
+```
+---
+**Mentor** 
+```
+Mr.Rituvendra singh
+```
+---
 **Technology Used** 
+```
 Frontend - HTML,CSS,Bootstrap
 Backend - Python,Django 
-
+```
+---
 **Tools Used** 
+```
 Visual Studio,Atom,Anaconda Command Prompt 
+```
+---
+## Running the Code 
 
-**How to Run project**
+```
+Download project
+git clone https://github.com/Samurais-IIITA/Lab_System
+```
+---
