@@ -1,0 +1,56 @@
+{% extends 'app/main_logged_in.html' %}
+{% block start %}
+<br>
+<div class="dash">
+
+  <div><center><img src="data:image/png;base64,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" width="250" height="125"></center></div>
+
+  <br>
+
+  <br>
+
+  <div class="row" >
+    <div class= "col-md-4">
+      <hr>
+      <div class="card card-body" style="background-color:powderblue;">
+        <a class="btn btn-primary btn-sm btn-block" href="{% url 'create_section' %}" style="font-family:georgia,garamond,serif;font-size:20px;font-style:italic;background-color:steelblue;">Create Section</a>
+        <a class="btn btn-primary btn-sm btn-block" href="{% url 'students' %}" style="font-family:georgia,garamond,serif;font-size:20px;font-style:italic;background-color:steelblue;">See all Students</a>
+        <table class="table table-sm">
+          <tr>
+            <th>Section ID</th>
+            <th>Respective Faculty</th>
+            <th>Remove</th>
+          </tr>
+
+          {% for i in sec %}
+            <tr>
+              <td>{{i.section}}</td>
+              <td>{{i.faculty}}</td>
+              <td><a class="btn btn-lg btn-danger" style="font-size:12px;" href="{% url 'delete_section' i.id %}">Remove</a></td>
+            </tr>
+          {% endfor %}
+
+        </table>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <hr>
+      <div class="card card-body" style="background-color:powderblue;">
+
+        <a class="btn btn-primary btn-sm btn-block" href="{% url 'RoomListView' %}" style="font-family:georgia,garamond,serif;font-size:20px;font-style:italic;background-color:steelblue;">Book Lab</a>
+        <a class="btn btn-primary btn-sm btn-block" href="{% url 'resource_book' %}" style="font-family:georgia,garamond,serif;font-size:20px;font-style:italic;background-color:steelblue;">Book Resources</a>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <hr>
+      <div class="card card-body" style="background-color:powderblue;">
+
+        <a class="btn btn-primary btn-sm btn-block" href="{% url 'BookingList' %}" style="font-family:georgia,garamond,serif;font-size:20px;font-style:italic;background-color:steelblue;">View Booked Labs</a>
+        <a class="btn btn-primary btn-sm btn-block" href="{% url 'resourcepage' %}" style="font-family:georgia,garamond,serif;font-size:20px;font-style:italic;background-color:steelblue;">View Booked Resources</a>
+       </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

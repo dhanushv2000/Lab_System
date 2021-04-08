@@ -1,0 +1,22 @@
+{% extends 'app/main_logged_in.html' %}
+{% block start %}
+  <h3>Delete Resource</h3>
+
+  <br>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card card-body">
+
+        <p>Are you sure, you want to delete"{{sec}}"?</p>
+        <form action="{% url 'delete_resource' sec.id %}" method="post">
+          {% csrf_token %}
+          <a class="btn btn-warning" href="{% url 'resourcepage'  %}">Cancel</a>
+          <input class="btn btn-danger" type="submit" name="Delete">
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'app/main_logged_in.html' %}
+{% block start %}
+<br><br>
+<div class="createSec">
+  <h1 style = "font-family:georgia,garamond,serif;font-size:40px;text-align:center;font-style:italic"><b>Booking List</b></h1>
+  <br>
+        <div class="row">
+          <div class= "col-md-12">
+            <hr>
+            <div class="card card-body" style = "font-size:25px;color:black;">
+              <table class="table table-sm" style="color:black;">
+                <tr>
+                  <th>Lab Department</th>
+                  <th>Room Number</th>
+                  <th>From</th>
+                  <th>To</th>
+                  <th>Section</th>
+                  <th></th>
+                </tr>
+
+                {% for booking in booking_list %}
+                  <tr>
+                    <td>{{booking.room.category}}</td>
+                    <td>{{booking.room.number}}</td>
+                    <td>{{booking.check_in}}</td>
+                    <td>{{booking.check_out}}</td>
+                    <td>{{booking.room.section}}</td>
+                    <td><a class="btn btn-sm btn-danger" href="{% url 'delete_booked_lab' booking.id %}">Cancel Booking</a></td>
+                  </tr>
+                {% endfor %}
+
+              </table>
+            </div>
+          </div>
+        </div>
+
+</div>
+      <br>
+{% endblock %}

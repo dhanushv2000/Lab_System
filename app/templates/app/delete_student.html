@@ -1,0 +1,25 @@
+{% extends 'app/main_logged_in.html' %}
+{% block start %}
+<br><br><br><br>
+<div class="createSec"  >
+  <h3 style = "font-family:georgia,garamond,serif;text-align:center;font-size:40px;font-style:italic;"><b>Delete Student {{sec.roll_number}}</b></h3>
+
+  <br>
+
+  <div class="row"style="text-align:center;margin:auto;">
+    <div class="col-md-12" style="padding-right:50px;padding-left:50px;">
+      <div class="card card-body" style="text-align:center;">
+
+        <p style="font-size:20px;">Are you sure, you want to delete"{{sec.roll_number}}"?</p><br>
+        <form style="text-align:center;"action="{% url 'delete_student' sec.id %}" method="post">
+          {% csrf_token %}
+          <a class="btn btn-warning" href="{% url 'student_id' sec.id %}">Cancel</a>
+          <input class="btn btn-danger" type="submit" name="Delete">
+        </form>
+
+      </div>
+    </div>
+  </div>
+  </div>
+
+{% endblock %}

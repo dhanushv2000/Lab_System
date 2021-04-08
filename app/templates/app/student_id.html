@@ -1,0 +1,33 @@
+{% extends 'app/main_logged_in.html' %}
+{% block start %}
+<div class="createSec">
+  <h3 style = "font-family:georgia,garamond,serif;text-align:center;font-size:40px;font-style:italic;">Student {{student.roll_number}}</h3>
+
+  <br>
+
+  <div class="row">
+
+    <div class="col-md">
+      <div class="card card-body">
+        <h5 style = "font-family:georgia,garamond,serif;text-align:center;font-size:20px;font-style:italic;"><b>Student:</b></h5>
+        <hr>
+        <a class="btn btn-outline-info btn-sm btn-block" href="{% url 'update_student_id' student.id %}"><b>Update Student</b></a>
+        <a class="btn btn-outline-danger btn-sm btn-block" href="{% url 'delete_student' student.id %}"><b>Delete Student</b></a>
+      </div>
+    </div>
+
+    <div class="col-md">
+      <div class="card card-body">
+        <h5 style = "font-family:georgia,garamond,serif;text-align:center;font-size:20px;font-style:italic;"><b>Contact Information</b></h5>
+        <hr>
+        <p>Roll Number: {{student.roll_number}}</p>
+        <p>Email: {{student.email}}</p>
+        <p>Section ID: {{student.section}}</p>
+      </div>
+    </div>
+
+  </div>
+
+  <br>
+</div>
+{% endblock %}

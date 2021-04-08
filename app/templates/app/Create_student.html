@@ -1,0 +1,15 @@
+{% extends 'app/main_logged_in.html' %}
+{% block start %}
+<br><br><br><br><br><br><div class="createSec">
+  <h3 style = "font-family:georgia,garamond,serif;font-size:40px;font-style:italic;text-align:center">Create/Edit Student</h3>
+
+  <br>
+
+  <form action="" method="post" style = "font-family:georgia,garamond,serif;text-align:center;font-size:20px;font-style:italic;">
+    {% csrf_token %}
+    {{form}}<br><br>
+    <input type="submit" name="SUBMIT" style = "font-family:georgia,garamond,serif;font-size:25px;font-style:italic;background-color:steelblue;text-align:center;">
+  </form>
+  </div>
+
+{% endblock %}

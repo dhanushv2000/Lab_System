@@ -1,0 +1,18 @@
+{% extends 'app/main_logged_in.html' %}
+{% block start %}
+<br><br><br><br>
+<div class="createSec">
+<div class="mysection">
+  <h3 style = "font-family:georgia,garamond,serif;font-size:40px;font-style:italic">Create New Section</h3><br>
+</div>
+
+  <br>
+
+  <form action="" method="post" style = "font-family:georgia,garamond,serif;text-align:center;font-size:20px;font-style:italic;">
+    {% csrf_token %}
+    <h6>Enter Section ID: </h6>
+    {{form.section}}
+    <br><br><input style = "font-family:georgia,garamond,serif;font-size:20px;text-align:center;font-style:italic;background-color:steelblue;"type="submit" name="SUBMIT">
+  </form>
+</div>
+{% endblock %}
