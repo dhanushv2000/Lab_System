@@ -1,0 +1,31 @@
+{% extends 'app/main_logged_in.html' %}
+{% block start%}
+<br><br>
+<div class="createSec">
+<center>
+  <table>
+    <thead>
+      <th>Selected booking</th>
+      <th>Selected resource</th>
+      <th>Quantity</th>
+      <th>Status</th>
+      <th></th>
+    </thead>
+    {%for i in res%}
+    <tr>
+      <td>{{i.select_booking}}</td>
+      <td>{{i.select_resource}}</td>
+      <td>{{i.quantity}}</td>
+      <td>{{i.status}}</td>
+      <td><a class="btn btn-danger" href="{% url 'delete_resource' i.id %}"> Delete resource</a></td>
+    </tr>
+    {%endfor%}
+
+  </table>
+  </center>
+  </div>
+  <div class="footer">
+    <p><center>AvailSys , Lab Reservation System </center></p>
+  </div>
+
+{%endblock%}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <style>
+    .footer {
+       position: fixed;
+       left: 0;
+       bottom: 0;
+       width: 100%;
+       background-color:#2d5986;
+       color: white;
+       text-align: center;
+    }
+    .createSec{
+      padding-top: 50px;
+      padding-bottom: 50px;
+      padding-right:30px;
+      padding-left:30px;
+      margin:50px;
+      background-color:	#ADD8E6;
+    }
+  </style>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Delete lab booking</title>
+  </head>
+  <body>
+    <div class="createSec">
+    <p>  You have successfully cancelled booking </p>
+    <p>  room : {{sec.room}}</p>
+    <p>  section : {{sec.section}}</p>
+    <p>  check_in : {{sec.check_in}}</p>
+    <p>  check_out : {{sec.check_out}}</p>
+    </div>
+    <div class="footer">
+      <p><center>AvailSys , Lab Reservation System </center></p>
+    </div>
+  </body>
+</html>
