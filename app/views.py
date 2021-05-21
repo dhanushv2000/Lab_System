@@ -25,6 +25,24 @@ from django.urls import reverse, reverse_lazy
 def home(request):
     return render(request,'app/home.html')
 
+def menu(request):
+    return render(request,'app/menu.html')
+
+def about(request):
+    return render(request,'app/About.html')
+
+def Manage_Sections(request):
+    return render(request,'app/Manage_Sections.html')
+
+def Manage_labs_page(request):
+    return render(request,'app/Manage_labs_page.html')
+
+def Manage_resources_page(request):
+    return render(request,'app/Manage_resources_page.html')
+
+def view_section(request):
+    sec = Section.objects.filter(faculty__username = request.user.username)
+    return render(request,'app/View_Section.html',{"sec":sec})
 
 def registerPage(request):
 	if request.user.is_authenticated:
@@ -47,7 +65,7 @@ def registerPage(request):
 def loginPage(request):
 	if request.user.is_authenticated:
 		context = {}
-		return render(request, 'app/DashBoard.html', context)
+		return render(request, 'app/menu.html', context)
 	else:
 		if request.method == 'POST':
 			username = request.POST.get('username')
@@ -58,7 +76,7 @@ def loginPage(request):
 			if user is not None:
 				login(request, user)
 				context = {}
-				return render(request, 'app/DashBoard.html', context)
+				return render(request, 'app/menu.html', context)
 			else:
 				messages.info(request, 'Username OR password is incorrect')
 
@@ -114,18 +132,25 @@ def create_section(request):
             print("Mail successfully sent")
 
             post.save()
-            return redirect('DashBoard')
+            return redirect('Manage_Sections')
 
     context = {'form':form}
     return render(request, 'app/create_section.html',context)
 
 def Create_Student(request):
+    user=request.user.email
     form = CreateStudent()
-
+    section_show=Section.objects.filter(faculty__username=request.user.username)
     if request.method == 'POST':
         form = CreateStudent(request.POST)
         if form.is_valid():
-            data= form.cleaned_data
+            data= form.save(commit=False)
+            sectionname=request.POST['section_name']
+            section_data=Section.objects.filter(faculty__username=request.user.username,section=sectionname)
+            data.section=section_data[0]
+            data.save()
+            print(data.section)
+            form.save()
             html_content = render_to_string('createstudentemail.html',{'data':data})
             text_content = strip_tags(html_content)
             msg=EmailMultiAlternatives(
@@ -136,16 +161,16 @@ def Create_Student(request):
             #from
             EMAIL_HOST_USER,
             #to
-            [data['email']]
+            [data.email,user]
             )
             msg.attach_alternative(html_content, "text/html")
             msg.send()
             print("Mail successfully sent")
 
-            form.save()
+
             return redirect('students')
 
-    context = {'form':form}
+    context = {'form':form,'section_show':section_show}
 
     return render(request, 'app/Create_student.html', context)
 
@@ -176,7 +201,7 @@ def update_student_id(request,pk):
             return redirect('students')
 
     context = {'form':form}
-    return render(request, 'app/Create_student.html', context)
+    return render(request, 'app/Update_student.html', context)
 
 def delete_section(request,pk):
     sec = Section.objects.get(id=pk)
@@ -198,7 +223,7 @@ def delete_section(request,pk):
         msg.attach_alternative(html_content, "text/html")
         msg.send()
         print("Mail successfully sent")
-        return redirect('DashBoard')
+        return redirect('Manage_Sections')
     context = {'sec':sec}
     return render(request, 'app/delete_section.html', context)
 
@@ -289,6 +314,9 @@ class RoomDetailView(View):
             post.user = self.request.user
             post.room = room
             if form.is_valid():
+                sectionname=request.POST['section_name']
+                section_data=Section.objects.filter(faculty__username=request.user.username,section=sectionname)
+                post.section=section_data[0]
                 post.save()
             context= {'booking':post}
             return render(request,'booking_success.html',context)
@@ -303,11 +331,26 @@ class CancelBookingView(DeleteView):
 
 def resource_book(request):
     user=request.user.email
+    user_name=request.user.username
+    print(user_name)
     form = book()
-    if request.method=="POST":
+    show_lab=Booking.objects.filter(user__username=request.user.username)
+    print(show_lab,request.method)
+    if request.method=='POST':
         form=book(request.POST)
+        print('form before valid')
         if form.is_valid():
-            data= form.cleaned_data
+            print('form valid')
+            data= form.save(commit=False)
+            Labs=request.POST['labs']
+            print([Labs])
+            #for i in all_labs.count()
+            selected_lab=Booking.objects.filter(user__username=user_name)
+            for i in selected_lab:
+                if str(i) == Labs:
+                    data.select_booking=i
+                    break
+            data.save()
             html_content = render_to_string('bookresourceemail.html',{'data':data})
             text_content = strip_tags(html_content)
             msg=EmailMultiAlternatives(
@@ -323,10 +366,8 @@ def resource_book(request):
             msg.attach_alternative(html_content, "text/html")
             msg.send()
             print("Mail successfully sent")
-
-            form.save()
             return redirect("resource_book")
-    return  render(request,'resource_book.html',{'form':form})
+    return  render(request,'resource_book.html',{'form':form,'show_lab':show_lab})
 
 def resourcepage(request):
     res=resource_booking.objects.filter(select_booking__user__username = request.user.username)
@@ -376,7 +417,7 @@ def delete_booked_lab(request,pk):
         msg.attach_alternative(html_content, "text/html")
         msg.send()
         print("Mail successfully sent")
-        return redirect('DashBoard')
+        return redirect('BookingList')
     context = {'sec':sec}
     return render(request, 'booking_cancel_view.html', context)
 
@@ -405,7 +446,7 @@ def sendemail(request,pk):
     msg.attach_alternative(html_content, "text/html")
     msg.send()
     print("Mail successfully sent")
-    return redirect('DashBoard')
+    return redirect('Manage_labs_page')
 
 def foremail(request):
     booking=Booking.objects.all()
