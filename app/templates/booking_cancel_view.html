@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>AvailSys</title>
+		<meta name="description" content="AvailSys,The Lab Reservation System" />
+		<meta name="author" content="Team Samurais" />
+		<link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" type="text/css" href="{% static "css/normalize.css" %}" />
+		<link rel="stylesheet" type="text/css" href="{% static "css/demo.css" %}" />
+		<link rel="stylesheet" type="text/css" href="{% static "css/component2.css" %}" />
+    <link rel="stylesheet" href="{% static "css/Style1.css" %}" />
+		<link rel="stylesheet" href="{% static "css/Style2.css" %}" />
+		<link rel="stylesheet" href="{% static "css/View.css" %}" />
+		<script src="{% static "js/modernizr-2.6.2.min.js" %}"></script>
+
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-7243260-2']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+	</head>
+
+<body>
+	<div class="container">
+		<!-- Top Navigation -->
+		<div class="codrops-top clearfix">
+			<a class="codrops-icon codrops-icon-prev" href="View_Section.html"><span >Return to View Section</span></a>
+		</div>
+		<header>
+		<h1>AvailSys<span>The Lab Reservation System</span></h1>
+		</header>
+		<div class="component">
+			<h2>Delete Slot</h2>
+		</div>
+	</div>
+	<header><h1><center>Delete Slot</center></h1><header>
+
+<div style="text-align:center;">
+  <form id="booking-form" action="{% url 'delete_booked_lab' sec.id %}" method="POST">
+    {% csrf_token %}
+    <div class="container">
+      <p  style="color:black;font-size:35px;">Are you sure you want to delete this Scheduled Slot?</p>
+      <h5  style="color:#318153;font-size:25px;">Room Category : {{sec.room.category}}</h5>
+      <h5  style="color:#318153;font-size:25px;">Room Number : {{sec.room.number}}</h5>
+      <h5  style="color:#318153;font-size:25px;">Section ID : {{sec.section.section}}</h5>
+      <h5  style="color:#318153;font-size:25px;">Check In : {{sec.check_in}}</h5>
+      <h5  style="color:#318153;font-size:25px;">Check Out : {{sec.check_out}}</h5>
+			<br>
+      <div class="clearfix">
+        <a type="button" style="width:25%;text-align:center;" href="{% url "BookingList" %}" class="btn">Return</a>
+        <button  class="btn" style = "font-family:georgia,garamond,serif;font-size:20px;color:white;background-color:#429a67;text-align:center;" type="submit">Cancel the Booking</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+</body>

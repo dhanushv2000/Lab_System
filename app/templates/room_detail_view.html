@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>AvailSys</title>
+		<meta name="description" content="AvailSys,The Lab Reservation System" />
+		<meta name="author" content="Team Samurais" />
+		<link rel="shortcut icon" href="../favicon.ico">
+		<link rel="stylesheet" type="text/css" href="{% static "css/normalize.css" %}" />
+		<link rel="stylesheet" type="text/css" href="{% static "css/demo.css" %}" />
+		<link rel="stylesheet" type="text/css" href="{% static "css/component2.css" %}" />
+    <link rel="stylesheet" href="{% static "css/Style1.css" %}" />
+		<script src="{% static "js/modernizr-2.6.2.min.js" %}"></script>
+		<link rel="stylesheet" href="{% static "css/Style2.css" %}" />
+		<link rel="stylesheet" href="{% static "css/Delete_sec.css" %}" />
+
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-7243260-2']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+
+	</head>
+	<body>
+		<div class="container">
+            <div class="codrops-top clearfix">
+                <a class="codrops-icon codrops-icon-prev" href="{% url "RoomListView" %}"><span>Return to Lab Type</span></a>
+                <span class="right">
+					<a class="codrops-icon codrops-icon-next" href="{% url "BookingList" %}">
+						<span>View Booked Labs
+						</span>
+					</a>
+				</span>
+            </div>
+			<header>
+				<h1>AvailSys<span>The Lab Reservation System</span></h1>
+			</header>
+			<div class="component">
+				<h2>Schedule</h2>
+				<br>
+			</div>
+			<h1><center>Department</center></h1>
+			<div style="text-align:center;">
+				<form class="" action="" method="POST">
+					<span class="input" style="text-align:center;border-bottom: 0em;color:#429a67;font-size: 25px;">
+						{% csrf_token %}
+						<label for="">Section: </label>
+						<!--{{form.section}}-->
+						<select class="section_name" name="section_name">
+							{% for i in section %}
+							<option value="{{i.section}}">{{i.section}}</option>
+							{%endfor%}
+						</select>
+						<br><br>
+						<span></span>
+					</span>
+					<br><br><br>
+
+						<div style="text-align:center;">
+							<span class="input" style="text-align:center;border-bottom: 0em;color:#429a67;font-size: 20px;"><h4 style="color: #318153">Check In</h4>
+								<input id="id_check_in" type="datetime-local" style="text-align:center;" name = "check_in" placeholder="Check In"><span></span></span></div><br><br>
+
+								<div style="text-align:center;">
+									<span class="input" style="text-align:center;border-bottom: 0em;color:#429a67;font-size: 20px;"><h4 style="color: #318153" >Check Out</h4>
+										<input type="datetime-local" id="id_check_out" style="text-align:center;" name = "check_out" placeholder="Check Out"><span></span></span></div><br><br><br>
+
+							<center><button type="submit" class="Style1"style ="font-family:georgia,garamond,serif;font-size:25px;font-style:italic;color:white;background-color:#429a67;text-align:center;">Book the Room</button></center><br><br><br><br>
+				</form>
+
+		</div>
+
+		<script src="{% static "js/polyfills.js" %}"></script>
+		<script src="{% static "js/demo2.js" %}"></script>
+		<script>
+		var modal = document.getElementById('id02');
+		window.onclick = function(event) {
+		  if (event.target == modal) {
+		    modal.style.display = "none";
+		  }
+		}
+		</script>
+	</body>
+</html>
