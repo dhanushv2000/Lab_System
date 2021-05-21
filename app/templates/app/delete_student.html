@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>AvailSys</title>
+		<meta name="description" content="AvailSys,The Lab Reservation System" />
+		<meta name="author" content="Team Samurais" />
+		<link rel="shortcut icon" href="../favicon.ico">
+		<link rel="stylesheet" type="text/css" href="{% static "css/normalize.css" %}" />
+		<link rel="stylesheet" type="text/css" href="{% static "css/demo.css" %}" />
+		<link rel="stylesheet" type="text/css" href="{% static "css/component2.css" %}" />
+    <link rel="stylesheet" href="{% static "css/Style1.css" %}" />
+		<link rel="stylesheet" href="{% static "css/Style2.css" %}" />
+		<script src="{% static "js/modernizr-2.6.2.min.js" %}"></script>
+    <link rel="stylesheet" href="{% static "css/View.css" %}"/>
+		<link rel="stylesheet" type="text/css" href="{% static "css/Delete_sec.css" %}" />
+
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-7243260-2']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+	</head>
+
+<body>
+	<div class="container">
+		<!-- Top Navigation -->
+		<div class="codrops-top clearfix">
+			<a class="codrops-icon codrops-icon-prev" href="{% url "students" %}"><span >Return to View Section</span></a>
+		</div>
+		<header>
+		<h1>AvailSys<span>The Lab Reservation System</span></h1>
+		</header>
+		<div class="component">
+			<h2>DEL STUDENT</h2>
+		</div>
+	</div>
+	<header><h1><center>Delete Student {{sec.roll_number}} From {{sec.section.section}}</center></h1><header>
+	<center><button class="Style1" onclick="document.getElementById('id01').style.display='block'">Delete</button></center>
+
+<div id="id01" class="modal">
+  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close ">×</span>
+  <form class="modal-content" action="" method="POST">
+		{% csrf_token %}
+    <div class="del_con">
+      <h1 style="color:#318153" >Delete Student</h1>
+      <p  style="color:#318153">Are you sure you want to delete your Student?</p>
+			<br>
+      <div class="clearfix">
+        <a class="cancelbtn"  href="{% url "students" %}">Cancel</a>
+        <input class="deletebtn" type="submit" name="Delete">
+      </div>
+    </div>
+  </form>
+</div>
+	<script>
+	var modal = document.getElementById('id01');
+	window.onclick = function(event) {
+	  if (event.target == modal) {
+	    modal.style.display = "none";
+	  }
+	}
+	</script>
+</body>

@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>AvailSys</title>
+		<meta name="description" content="AvailSys,The Lab Reservation System" />
+		<meta name="author" content="Team Samurais" />
+		<link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" type="text/css" href="{% static "css/normalize.css" %}" />
+		<link rel="stylesheet" type="text/css" href="{% static "css/demo.css" %}" />
+		<link rel="stylesheet" type="text/css" href="{% static "css/component2.css" %}" />
+    <link rel="stylesheet" href="{% static "css/Style1.css" %}" />
+		<script src="{% static "js/modernizr-2.6.2.min.js" %}"></script>
+
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-7243260-2']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+
+	</head>
+	<body>
+		<div class="container">
+            <div class="codrops-top clearfix">
+                <a class="codrops-icon codrops-icon-prev" href="{% url "menu" %}"><span>Return Menu</span></a>
+				<span class="right">
+					<a class="codrops-icon codrops-icon-drop" href="{% url "logout" %}">
+						<span>Logout</span>
+					</a>
+				</span>
+            </div>
+			<header>
+				<h1>AvailSys<span>The Lab Reservation System</span></h1>
+			</header>
+			<div class="component">
+				<h2>DashBoard</h2>
+				<br>
+				<!-- Start Nav Structure -->
+				<button class="cn-button" id="cn-button">Dash</button>
+				<div class="cn-wrapper" id="cn-wrapper">
+					<ul>
+						<li><a href="#"><span></span></a></li>
+						<li><a href="{% url "Manage_Sections" %}"><span>Manage<br>Sections</span></a></li>
+						<li><a href="#"><span></span></a></li>
+						<li><a href="{% url "Manage_labs_page" %}"><span>Manage<br>Labs</span></a></li>
+						<li><a href="#"><span></span></a></li>
+						<li><a href="{% url "Manage_resources_page" %}"><span>Manage<br>Resource</span></a></li>
+						<li><a href="#"><span></span></a></li>
+					 </ul>
+				</div>
+				<!-- End of Nav Structure -->
+			</div><!-- /container -->
+      <script src="{% static "js/polyfills.js" %}"></script>
+  		<script src="{% static "js/demo2.js" %}"></script>
+	</body>
+</html>
