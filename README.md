@@ -16,7 +16,7 @@ Lab Reservation System for college University
 ---
 **Instructor**
 ```
-Mr.Ashutosh Kumar/ Dr.J.Kokila
+Dr. Ranjana Vyas
 ```
 ---
 **Mentor** 
